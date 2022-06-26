@@ -1,0 +1,43 @@
+[
+    {   "id":1,
+        "name":"trave1",
+        "description":"To travel from one place to another for different purposes is generally called travelling.",
+        "img":"https://i.ibb.co/Tkg1s59/damiano-baschiera-h-FXZ5c-Nfk-Ok-unsplash.png",
+        "price":"$24.99"
+    },
+    {
+        "id":2,
+        "name":"trave2",
+        "description":"To travel from one place to another for different purposes is generally called travelling.",
+        "img":"https://i.ibb.co/94x9DbD/daniel-jensen-t-Qpyp-KA92k8-unsplash.png",
+        "price":"$25.99"
+    },
+    {
+        "id":3,
+        "name":"trave3",
+        "description":"To travel from one place to another for different purposes is generally called travelling.",
+        "img":"https://i.ibb.co/nk8y9Vt/fabio-comparelli-uq2-E2-V4-Lh-CY-unsplash.png",
+        "price":"$26.99"
+    },
+    {
+        "id":4,
+        "name":"trave4",
+        "description":"To travel from one place to another for different purposes is generally called travelling.",
+        "img":"https://i.ibb.co/DKcwp4r/fredrik-ohlander-f-CW1h-Wq2nq0-unsplash.png",
+        "price":"$27.99"
+    },
+    {
+        "id":5,
+        "name":"5trave5",
+        "description":"To travel from one place to another for different purposes is generally called travelling.",
+        "img":"https://i.ibb.co/ww41n79/gaddafi-rusli-2ue-Un-L4-Ck-V8-unsplash.png",
+        "price":"$28.99"
+    },
+    {
+        "id":6,
+        "name":"trave6",
+        "description":"To travel from one place to another for different purposes is generally called travelling.",
+        "img":"https://i.ibb.co/PhTVjM1/jack-ward-rknrv-Crf-S1k-unsplash.png",
+        "price":"$29.99"
+    }
+]
