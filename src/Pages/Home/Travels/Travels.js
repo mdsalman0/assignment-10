@@ -1,12 +1,10 @@
 import React from 'react';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate,Link} from 'react-router-dom'
 
 const Travels = ({travel}) => {
-    const {name,description,img,price} = travel;
+    const {name,description,img,price,id} = travel;
     const navigate = useNavigate()
-    const handleCheckout = ()=>{
-        navigate('/checkout')
-    }
+    
     return (
         <div className='shadow bg-body rounded' style={{width:'340px',paddingLeft:0,margin:'20px auto'}}>
             <img width={340} height={350} src={img} alt="" />
@@ -14,8 +12,8 @@ const Travels = ({travel}) => {
             <h2>{name}</h2>
             <p><small>{description}</small></p>
             <p>{price}</p>
-            <button style={{margin:'0px 8px',background:
-        '#dacae5',borderRadius:'10px'}} className='w-100 border-0 p-2 fs-5' onClick={handleCheckout}>Checkout</button>
+            <Link to='/checkout' style={{margin:'0px 8px',background:
+        '#dacae5',borderRadius:'10px'}} className='w-100 border-0 p-2 fs-5'>Checkout</Link>
             </div>
         </div>
     );
