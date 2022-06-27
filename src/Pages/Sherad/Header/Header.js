@@ -17,7 +17,7 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand style={{color:'black'}} as={Link} to="/"><img width={50} src={travel} alt="" /></Navbar.Brand>
                     <Navbar.Toggle style={{background:'black'}} aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Navbar.Collapse className="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link style={{color:'black'}} as={Link} to="/Home">Home</Nav.Link>
                         <Nav.Link style={{color:'black'}} as={Link} to="/blogs">Blogs</Nav.Link>
