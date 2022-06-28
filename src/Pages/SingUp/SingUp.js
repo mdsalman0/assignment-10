@@ -6,16 +6,29 @@ import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import google from '../../../src/Image/google.png'
+import Loading from '../Sherad/Loading/Loading';
 
 const SingUp = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
+    const [successfully,setSuccessfully] = useState(false)
 
     const [createUserWithEmailAndPassword,user,loading,error,
     ] = useCreateUserWithEmailAndPassword(auth);
-    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth,{sendEmailVerification:true});
 
+    let errorElement;
+
+    if(error || error1){
+         errorElement = <div>
+            <p className='text-danger'>Error: {error?.message} {error1?.message}</p>
+        </div>
+    }
+
+    if(loading || loading1){
+        return <Loading></Loading>
+    }
 
     const handleEmail= e =>{
         setEmail(e.target.value)
@@ -27,9 +40,11 @@ const SingUp = () => {
         setConfirmPassword(e.target.value)
     }
 
-    const handleCreateRegister = e =>{
+    const handleCreateRegister =async e =>{
         e.preventDefault()
-        createUserWithEmailAndPassword(email,password)
+        createUserWithEmailAndPassword(email,password,confirmPassword);
+        setSuccessfully(<p className='text-warning'>thank you for registering for the travel</p>)
+
     }
 
     /* google SingIn */
@@ -54,13 +69,17 @@ const SingUp = () => {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control onBlur={handleConfirmPassword} type="password" placeholder="Confirm Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check  type="checkbox" label="Check me out" />
-                </Form.Group>
+                {
+                    successfully
+                }
                 <Button className='w-100 fs-5' variant="primary" type="submit">
                     SingUp
                 </Button>
             </Form>
+            {
+                errorElement
+            }
+            
             <p className='mt-3'>Already have an Account?<Link to='/login' className='text-danger'>Please Login</Link></p>
             <button onClick={handleGoogleSingIn} className='btn btn-info w-100 fs-5 '><img width={30} src={google} alt="" /> Google SingIn</button>
         </div>

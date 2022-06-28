@@ -3,9 +3,10 @@ import './Login.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import google from '../../../src/Image/google.png'
+import google from '../../../src/Image/google.png';
+import Loading from '../../Pages/Sherad/Loading/Loading'
 
 const Login = () => {
     const [email,setEmail] = useState('')
@@ -15,13 +16,23 @@ const Login = () => {
     
     const [signInWithEmailAndPassword,user,loading,error,
       ] = useSignInWithEmailAndPassword(auth);
-      const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail( auth);
 
     let from = location.state?.from?.pathname || "/";
     if(user){
         navigate(from, { replace: true });
     }
-    
+
+    if(user || user1){
+        return <Loading></Loading>
+    }
+
+    let errorElement;
+    if(error || error1){
+        errorElement = <p className='text-danger mt-3'>Error: {error?.message}{error?.message}</p>
+    }
+
     const handleEmail= e =>{
         setEmail(e.target.value)
     }
@@ -52,14 +63,18 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
                 <Button className='w-100 fs-5' variant="primary" type="submit">
                     Login
                 </Button>
             </Form>
-            <p className='mt-3'>Don't have an account?<Link to='/SingUp' className='text-danger'>Please Register</Link></p>
+            {
+                errorElement
+            }
+            <p className='mt-2 '>Forget Password?<button onClick={async () => {
+            await sendPasswordResetEmail(email);
+            alert('Sent email');}} className='btn btn-link mb-2'>Reset Password</button></p>
+            
+            <p className='mt-2'>Don't have an account?<Link to='/SingUp' className='text-danger'>Please Register</Link></p>
             <button onClick={handleGoogleSingIn} className='btn btn-info w-100 fs-5 '><img width={30} src={google} alt="" /> Google SingIn</button>
         </div>
     );
