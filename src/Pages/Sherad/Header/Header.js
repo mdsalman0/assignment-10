@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import travel from '../../../Image/icon/travel.png'
+import CustomLink from '../CustomLink/CustomLink';
 
 const Header = () => {
     const [user] = useAuthState(auth)
@@ -19,8 +20,8 @@ const Header = () => {
                     <Navbar.Toggle style={{background:'black'}} aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse className="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link style={{color:'black'}} as={Link} to="/Home">Home</Nav.Link>
-                        <Nav.Link style={{color:'black'}} as={Link} to="/blogs">Blogs</Nav.Link>
+                        <Nav.Link style={{color:'black'}} as={CustomLink} to='/home'>Home</Nav.Link>
+                        <Nav.Link style={{color:'black'}} as={CustomLink} to="/blogs">Blogs</Nav.Link>
                     </Nav>
                     <Nav>
                         {
