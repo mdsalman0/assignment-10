@@ -13,15 +13,15 @@ const Header = () => {
         signOut(auth);
     }
     return (
-        <header>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='shadow p-3 mb-5 bg-body rounded'>
-                <Container>
+        <header className="sticky-top">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='shadow p-3 bg-body rounded'>
+                <Container className=''>
                     <Navbar.Brand style={{color:'black'}} as={Link} to="/"><img width={50} src={travel} alt="" /></Navbar.Brand>
                     <Navbar.Toggle style={{background:'black'}} aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse className="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link style={{color:'black'}} as={CustomLink} to='/home'>Home</Nav.Link>
-                        <Nav.Link style={{color:'black'}} as={CustomLink} to="/blogs">Blogs</Nav.Link>
+                        <Nav.Link style={{color:'black'}} as={Link} to='/home'>Home</Nav.Link>
+                        <Nav.Link style={{color:'black'}} as={Link} to="/blogs">Blogs</Nav.Link>
                     </Nav>
                     <Nav>
                         {

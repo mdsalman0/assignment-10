@@ -1,10 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Button, Col, Form, Row } from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Checkout = () => {
+    const [email,setEmail] = useState('')
+    const [phone,setPhone] = useState('')
+    const [password,setPassword] = useState('')
+    const [address,setAddres] = useState('')
+    const [booking,setBooking] = useState(false)
+
+    const [signInWithEmailAndPassword,user,loading,error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const handleEmail= e =>{
+        setEmail(e.target.value)
+    }
+    const handlePassword= e =>{
+        setPassword(e.target.value)
+    }
+    const handlePhone= e =>{
+        setPhone(e.target.value)
+    }
+    const handleAddress= e =>{
+        setAddres(e.target.value)
+    }
+
+    const handleSubmit= e=>{
+        e.preventDefault()
+        signInWithEmailAndPassword(email,phone,address)
+        setBooking(
+        <p className='bg-primary text-white text-center fs-5 p-4 rounded'>thank you for the booking.</p>
+        )
+
+    }
+
     return (
-        <div className='w-75 mx-auto'>
-            <h1 className='text-center fst-italic'>Travelling</h1>
-            <p className='lh-base'>Traveling means going from one place to another for different purposes. They also explore to see the unseen and know the unknown. Travelers always travel to the most beautiful places of the world which uphold the existence of nature. All things are created by Allah. There are many means to see the unseen and know the unknown, but traveling is the best of all. For example, Reading books gives us literal knowledge, the listening story gives us indefinite ideas, but traveling gives us visual as well as concrete knowledge. At the same time, people do not travel for the same purposes. Someone travels to gain knowledge and experience, someone travels for pleasure, someone travels for business purposes, etc. There are different types of traveling like- traveling by air, bus, boat, train, bus, etc. Every traveling has much educative value. It is a part of education. Our education and book knowledge remain imperfect without traveling. For this reason, we can learn many things by traveling. It teaches us trade and commerce, language, sociology, customs, culture, history, geography, and so on. Therefore, the educative value of traveling beggars description. Besides, there are some special benefits of traveling. If a man stays in one place for a long time, he becomes monotonous and his life becomes boring and callous. Travelling removes our monotony and gives pleasure. Similarly, it also broadens our outlook and refreshes our minds. A good traveler can easily educate others. He can give us first-hand knowledge of men and matters of another country. I like traveling very much.</p>
+        <div className='w-25 mx-auto mt-5 mb-5'>
+            <Form onSubmit={handleSubmit}>
+                {
+                    booking
+                }
+                <Row className="mb-3 d-block">
+                    <Form.Group as={Col} controlId="formGridName">
+                    <Form.Label>Your Name</Form.Label>
+                    <Form.Control type="text" placeholder="Your Name" required/>
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Label>Your Email</Form.Label>
+                    <Form.Control onBlur={handleEmail} type="email" placeholder="Your email" required/>
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridPhone">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control onBlur={handlePassword} type="password" placeholder="password" required/>
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridPhone">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control onBlur={handlePhone} type="text" placeholder="phone" required/>
+                    </Form.Group>
+
+                </Row>
+
+                <Form.Group className="mb-3" controlId="formGridAddress1">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control onBlur={handleAddress} placeholder="address" required/>
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
         </div>
     );
 };

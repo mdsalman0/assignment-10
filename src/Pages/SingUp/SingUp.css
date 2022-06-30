@@ -1,0 +1,9 @@
+.singUp{
+    width: 25%;
+}
+
+@media (min-width:576px) and (max-width:768px){
+    .singUp{
+        width: 50%;
+    }
+}

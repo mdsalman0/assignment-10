@@ -4,15 +4,14 @@ import './AboutMe.css'
 
 const AboutMe = () => {
     return (
-        <div className=' info container'>
-            <div className='name-info'> 
-                <h2 className='text-center'>Md.Salman Hossain</h2>
-                <p className='fs-5'>I want to finish the course well in the next three to four months, then I want to see myself in a job, I will work as hard as I can, I will learn, I can, inshaAllah ..</p>
-                <p className='fs-5'>I want to finish the course well in the next three to four months, then I want to see myself in a job, I will work as hard as I can, I will learn, I can, inshaAllah ..</p>
-            </div>
-            <div className='image'>
-                <img className='img'src={hero} alt="" />
-            </div>
+        <div className='container'>
+             <div className="card w-50 mx-auto mb-5 mt-5">
+                <img height={500} src={hero} className="card-img-top" alt="..."/>
+                <div className="card-body">
+                <h5 className="card-title text-center">Md.Salman Hossain</h5>
+                <p className="card-text">I want to finish the course well in the next three to four months, then I want to see myself in a job, I will work as hard as I can, I will learn, I can, inshaAllah ...</p>
+                </div>
+            </div>   
         </div>
     );
 };

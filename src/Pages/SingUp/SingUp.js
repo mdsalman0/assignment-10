@@ -43,7 +43,9 @@ const SingUp = () => {
     const handleCreateRegister =async e =>{
         e.preventDefault()
         createUserWithEmailAndPassword(email,password,confirmPassword);
-        setSuccessfully(<p className='text-warning'>thank you for registering for the travel</p>)
+        setSuccessfully(
+            <p className='text-warning fs-5'>Thank you for a Register.Verify your email address.</p>
+        )
 
     }
 
@@ -53,7 +55,7 @@ const SingUp = () => {
     }
 
     return (
-        <div className='container w-25 mx-auto mb-4 shadow p-3 mb-5 bg-body rounded'>
+        <div className='container mx-auto mb-4 shadow p-3 mt-5 mb-5 bg-body rounded singUp'>
             <Form onSubmit={handleCreateRegister}>
                 <h1 className='text-primary text-center'>Please Register!!</h1>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
