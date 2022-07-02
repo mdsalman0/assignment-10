@@ -14,7 +14,6 @@ const SingUp = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
-    const [errorP,setError] = useState(false)
     const [successfully,setSuccessfully] = useState(false)
 
     const [createUserWithEmailAndPassword,user,loading,error,
@@ -84,7 +83,6 @@ const SingUp = () => {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control onBlur={handleConfirmPassword} type="password" placeholder="Confirm Password" required/>
                 </Form.Group>
-                {/* <p className='text-danger'>{error}</p> */}
                 {
                     successfully
                 }

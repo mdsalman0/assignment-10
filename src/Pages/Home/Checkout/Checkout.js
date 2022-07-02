@@ -30,7 +30,7 @@ const Checkout = () => {
         e.preventDefault()
         signInWithEmailAndPassword(email,phone,address)
         setBooking(
-        <p className='bg-primary text-white text-center fs-5 p-4 rounded'>thank you for the booking.</p>
+        <p className='bg-primary text-white text-center fs-4 p-4 rounded'>thank you for the booking.</p>
         )
 
     }
@@ -38,6 +38,7 @@ const Checkout = () => {
     return (
         <div className='w-25 mx-auto mt-5 mb-5'>
             <Form onSubmit={handleSubmit}>
+                <h3 className='text-primary mb-4 text-center'>Fill out the form to travel</h3>
                 {
                     booking
                 }
@@ -69,7 +70,7 @@ const Checkout = () => {
                     <Form.Control onBlur={handleAddress} placeholder="address" required/>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" className='w-100 fs-5'>
                     Submit
                 </Button>
             </Form>
