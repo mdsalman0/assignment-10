@@ -86,15 +86,16 @@ const SingUp = () => {
                 {
                     successfully
                 }
-                <Button className='w-100 fs-5' variant="primary" type="submit">
-                    SingUp
+                <div className="wrap">
+                <Button className='buttons fs-5' variant="" type="submit">Register
                 </Button>
+                </div>
             </Form>
             {
                 errorElement
             }
             
-            <p className='mt-3'>Already have an Account?<Link to='/login' className='text-danger'>Please Login</Link></p>
+            <p className='mt-4'>Already have an Account?<Link to='/login' className='text-danger'>Please Login</Link></p>
             <button onClick={handleGoogleSingIn} className='btn btn-info w-100 fs-5 '><img width={30} src={google} alt="" /> Google SingUp</button>
             <button onClick={handleGithubSingIn} className='btn btn-info w-100 fs-5 mt-3'><img width={30} src={github} alt="" /> Github SingUp</button>
         </div>

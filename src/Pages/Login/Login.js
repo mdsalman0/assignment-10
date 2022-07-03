@@ -72,18 +72,19 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onBlur={handlePassword} type="password" placeholder="Password" required/>
                 </Form.Group>
-                <Button className='w-100 fs-5' variant="primary" type="submit">
-                    Login
+                <div className="wrap">
+                <Button className='buttons fs-5' variant="" type="submit">Login
                 </Button>
+                </div>
             </Form>
             {
                 errorElement
             }
-            <p className='mt-2 '>Forget Password?<button onClick={async () => {
+            <p className='mt-3 mb-0'>Forget Password?<button onClick={async () => {
             await sendPasswordResetEmail(email);
             alert('Sent email');}} className='btn btn-link mb-2'>Reset Password</button></p>
             
-            <p className='mt-2'>Don't have an account?<Link to='/SingUp' className='text-danger'>Please Register</Link></p>
+            <p className='mt-0'>Don't have an account?<Link to='/SingUp' className='text-danger'>Please Register</Link></p>
             <button onClick={handleGoogleSingIn} className='btn btn-info w-100 fs-5 '><img width={30} src={google} alt="" /> Google SingIn</button>
             <button onClick={handleGithubSingIn} className='btn btn-info w-100 fs-5 mt-3'><img width={30} src={github} alt="" /> Github SingIn</button>
         </div>
