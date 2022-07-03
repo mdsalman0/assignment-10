@@ -22,7 +22,7 @@ const Login = () => {
     const [sendPasswordResetEmail] = useSendPasswordResetEmail( auth);
 
     let from = location.state?.from?.pathname || "/";
-    if(user){
+    if(user || user1 || user3){
         navigate(from, { replace: true });
     }
 

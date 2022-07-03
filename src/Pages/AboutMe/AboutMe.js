@@ -11,7 +11,8 @@ const AboutMe = () => {
                 <h5 className="card-title text-center">Md.Salman Hossain</h5>
                 <p className="card-text">I want to finish the course well in the next three to four months, then I want to see myself in a job, I will work as hard as I can, I will learn, I can, inshaAllah ...</p>
                 </div>
-            </div>   
+            </div>  
+            
         </div>
     );
 };

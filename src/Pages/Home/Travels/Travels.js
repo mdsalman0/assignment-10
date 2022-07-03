@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigate,Link} from 'react-router-dom'
+import './Travel.css'
 
 const Travels = ({travel}) => {
     const {name,description,img,price,id} = travel;
@@ -13,7 +14,11 @@ const Travels = ({travel}) => {
             <p><small>{description}</small></p>
             <p>Price: {price}</p>
             <div className='text-center'>
-            <Link to='/checkout' className='fs-5 btn btn-primary w-100 text-center'>Checkout</Link>
+            <Link to='/checkout'>
+                <div className="wrap">
+                    <button className="buttons">Checkout</button>
+                </div>
+            </Link>
             </div>
             </div>
         </div>
