@@ -12,6 +12,6 @@ live website: (https://travel-b8ea7.web.app/).
 
 * I'm setting up a login page, users can login with email and Google, I'm setting up a link so users can go from the login page to the signup page, I'm setting up a signup so users can register.
 
-* I am using that library and framework.
+* I am using library and framework.
 Library - react, react Router.
 Framework - Bootstrap, Responsive Bootstrap.
